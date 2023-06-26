@@ -105,7 +105,6 @@ const mint = async (privateKey) => {
       .sendSignedTransaction(signedTx.rawTransaction)
       .on('transactionHash', async (hash) => {
         console.log(`RetroPGF3. ${address}: Transaction is sent! ${explorer}/tx/${hash}`);
-        await checkTransactionStatus(hash, address, privateKey);
       })
       .on('error', async (error) => {
         {
