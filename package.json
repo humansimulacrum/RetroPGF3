@@ -1,0 +1,14 @@
+{
+  "name": "retropgf3",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {},
+  "author": "sim",
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "5.7.2",
+    "web3": "1.10.0"
+  }
+}
