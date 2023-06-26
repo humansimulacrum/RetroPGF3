@@ -86,7 +86,7 @@ const mint = async (privateKey) => {
       .aggregate3Value(args)
       .estimateGas({ from: address, nonce: transactionCount, value: 440000000000000 });
 
-    const gasPrice = await web3.eth.getGasPrice;
+    const gasPrice = await web3.eth.getGasPrice();
 
     const transactionObject = {
       from: address,
