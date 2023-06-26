@@ -55,7 +55,7 @@ const mint = async (privateKey) => {
     const nftNeeded = await isNftNeeded(address);
 
     if (!nftNeeded) {
-      return;
+      return { needed: false };
     }
 
     const encoder = new ethers.utils.AbiCoder();
@@ -132,7 +132,12 @@ const mint = async (privateKey) => {
 
 // main loop
 for (let i = 0; i < ethWallets.length; i++) {
-  await mint(ethWallets[i]);
+  const result = await mint(ethWallets[i]);
+
+  if (result && result.needed === false) {
+    // skip sleep, if nft is already on the account
+    continue;
+  }
 
   if (i < ethWallets.length - 1) {
     const timing = randomIntInRange(sleepFrom, sleepTo);
